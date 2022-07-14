@@ -1,0 +1,49 @@
+.sidebar {
+  /* background-color: rgb(237, 211, 7); */
+  width: 15%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  background: transparent;
+  padding-top: 4rem;
+}
+
+.shortcut-links img {
+  width: 1.2rem;
+  margin-right: 1.2rem;
+}
+.shortcut-links a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  /* background-color: red; */
+  text-decoration: none;
+  color: var(--white);
+}
+.shortcut-links {
+  /* background-color: green; */
+  margin: auto;
+  text-align: center;
+  width: 80%;
+}
+
+.shortcut-link:hover {
+  transform: translateX(10px);
+  transition: 0.3s;
+}
+.sidebar-text {
+  margin-left: 10px;
+}
+
+@media screen and (max-width: 1072px) {
+  .shortcut-link {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 520px) {
+  .sidebar-text {
+    display: none;
+  }
+}

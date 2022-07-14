@@ -1,0 +1,87 @@
+.footer {
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 4rem;
+  color: var(--primary-color);
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer div {
+  text-align: center;
+}
+
+.footer div h3 {
+  font-weight: 300;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+form input {
+  width: 400px;
+  height: 45px;
+  border-radius: 4px;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  outline: none;
+  border: none;
+}
+
+form button {
+  background: transparent;
+  border: 2px solid  var(--primary-color);
+  color:  var(--primary-color);
+  border-radius: 30px;
+  padding: 10px 30px;
+  font-size: 15px;
+  cursor: pointer;
+}
+form button:hover {
+  background:  var(--primary-color);
+  color: var(--black);
+  transition: 0.2s;
+}
+.social-icons {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem auto 0 auto;
+}
+
+.col-1 a:hover {
+  transform: translateX(10px);
+  transition: 0.3s;
+}
+
+@media screen and (max-width: 480px) {
+  .footer div h3 {
+    font-weight: 100;
+    font-size: 1rem;
+  }
+  form button {
+    border-radius: 30px;
+    padding: 5px 15px;
+    font-size: 10px;
+  }
+  .social-icons {
+    width: 30%;
+  }
+  form input{
+    width: 200px;
+  }
+}
+@media (min-width: 481px) and (max-width: 768px) {
+ 
+  form button {
+    border-radius: 30px;
+    padding: 7px 20px;
+    font-size: 13px;
+  }
+  .social-icons {
+    width: 40%;
+  }
+  form input{
+    width: 300px;
+  }
+}

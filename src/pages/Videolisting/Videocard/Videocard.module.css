@@ -1,0 +1,57 @@
+.video-card {
+  box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.2);
+  width: 18rem;
+  margin: 2px;
+  background-color: var(--page-bg-color);
+  color: var(--white);
+  cursor: pointer;
+  position: relative;
+}
+.video-card:hover {
+  background-color: grey;
+}
+
+.heart-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 2.5rem;
+  z-index: 5;
+  color: var(--primary-color);
+}
+.delete-icon{
+  position: absolute;
+  top: 0;
+  right: 3;
+  font-size: 2rem;
+  z-index: 5;
+  color: var(--primary-color);
+}
+.image-container {
+  width: 100%;
+  height: 70%;
+}
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  
+}
+.card-image:hover {
+  width: 101%;
+  height: 105%;
+}
+.card-content {
+  display: flex;
+  justify-content: flex-start;
+  padding: 1rem;
+}
+.user-profile {
+  border-radius: 50%;
+  height: 2.5rem;
+  margin-right: 1rem;
+}
+.card-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
