@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Navbar } from "../Videolisting/Navbar/Navbar";
 import { Sidebar } from "../Videolisting/Sidebar/Sidebar";
 import SinglevideoCSS from "../../pages/Singlevideo/Singlevideo.module.css";
