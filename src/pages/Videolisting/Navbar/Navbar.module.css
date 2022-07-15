@@ -1,0 +1,87 @@
+/* Nav-Styles  */
+
+.flex-div {
+  display: flex;
+  align-items: center;
+}
+nav {
+  padding: 0 1rem;
+  justify-content: space-between;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  background: var(--side-main-nav-bg-color);
+  color: var(--white);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+}
+
+.nav-right {
+  margin-right: 2rem;
+}
+
+.nav-right .user-icon {
+  width: 2rem;
+  border-radius: 50%;
+  margin-right: 0;
+}
+
+.menu-icon {
+  width: 1.2rem;
+  margin-right: 1rem;
+}
+.logo {
+  width: 10rem;
+}
+
+.mic-icon {
+  width: 1rem;
+}
+.nav-center .search-box {
+  border: 1px solid var(--white);
+  margin-right: 1rem;
+  padding: 8px 12px;
+  border-radius: 1.5rem;
+}
+.nav-center .search-box input {
+  width: 25rem;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--white);
+}
+.nav-center .search-box img {
+  width: 1rem;
+}
+
+@media screen and (max-width: 480px) {
+  .nav-center .search-box {
+    width: 80%;
+    display: none;
+  }
+  .nav-center .search-box input {
+    width: 100%;
+  }
+  .mic-icon {
+    display: none;
+  }
+  .nav-right {
+    margin-right: 10px;
+  }
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  .nav-center .search-box {
+    width: 100%;
+  }
+  .nav-center .search-box input {
+    width: 100%;
+  }
+  .mic-icon {
+    display: block;
+  }
+}
+@media (min-width: 768px) and (max-width: 920px) {
+  .nav-center .search-box {
+    width: 60%;
+  }
+}

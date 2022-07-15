@@ -1,0 +1,37 @@
+.cards-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.col {
+  margin: 1rem;
+}
+
+.col img {
+  width: 20rem;
+  height: 30rem;
+}
+.mid-heading {
+  color: var(--primary-color);
+  margin: 2rem 0;
+}
+
+@media screen and (max-width: 480px) {
+  .mid-heading {
+    font-size: 1rem;
+  }
+  .col img {
+    width: 10rem;
+    height: 15rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .mid-heading {
+    font-size: 1.5rem;
+  }
+  .col img {
+    width: 15rem;
+    height: 20rem;
+  }
+}
