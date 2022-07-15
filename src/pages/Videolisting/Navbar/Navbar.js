@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { FaMicrophone, FaSearch } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import NavbarCSS from "../Navbar/Navbar.module.css";
-console.log(`${NavbarCSS["nav-center"]}${NavbarCSS["flex-div"]}`);
+
 function Navbar() {
   return (
     <div>

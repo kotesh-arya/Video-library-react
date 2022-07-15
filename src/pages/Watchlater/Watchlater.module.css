@@ -1,6 +1,5 @@
 .container {
   background-color: var(--page-bg-color);
-  /* background-color: rebeccapurple; */
   color: var(--white);
   padding-top: 2.5rem;
   padding-left: 5px;
@@ -20,14 +19,11 @@
   margin: 2rem;
 }
 
-/* Media-queries */
-
 @media screen and (max-width: 480px) {
   .container {
     padding-top: 3rem;
     padding-left: 5px;
     margin-left: 3.5rem;
-    /* background-color: red; */
   }
 
   .list-container {
@@ -43,7 +39,6 @@
   }
 }
 @media (min-width: 481px) and (max-width: 882px) {
-
   .container {
     padding-top: 5rem;
     padding-left: 5px;
@@ -67,7 +62,6 @@
   .list-container {
     margin: 0;
     background-color: var(--page-bg-color);
-    /* background-color: red; */
     justify-content: flex-start;
     align-items: center;
     padding: 1rem 0 0 0;
@@ -77,6 +71,5 @@
     text-decoration: none;
     margin: 2px;
     padding: 0;
-    /* background: yellow; */
   }
 }

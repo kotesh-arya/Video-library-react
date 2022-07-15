@@ -19,7 +19,7 @@
   z-index: 5;
   color: var(--primary-color);
 }
-.delete-icon{
+.delete-icon {
   position: absolute;
   top: 0;
   right: 3;
@@ -34,7 +34,7 @@
 .card-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;  
+  object-fit: cover;
 }
 .card-image:hover {
   width: 101%;

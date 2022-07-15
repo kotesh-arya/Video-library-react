@@ -8,11 +8,6 @@ import ReactPlayer from "react-player";
 import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
 import { IoIosShareAlt, IoIosSave } from "react-icons/io";
 function Singlevideo() {
-  let innerFrameWidth = window.innerWidth;
-  useEffect(() => {
-    console.log(innerFrameWidth);
-  }, [innerFrameWidth]);
-
   return (
     <div>
       <Navbar />

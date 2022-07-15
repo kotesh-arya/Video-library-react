@@ -1,5 +1,4 @@
 .sidebar {
-  /* background-color: rgb(237, 211, 7); */
   width: 15%;
   height: 100%;
   position: fixed;
@@ -18,12 +17,10 @@
   justify-content: flex-start;
   flex-wrap: wrap;
   margin-bottom: 1.5rem;
-  /* background-color: red; */
   text-decoration: none;
   color: var(--white);
 }
 .shortcut-links {
-  /* background-color: green; */
   margin: auto;
   text-align: center;
   width: 80%;
