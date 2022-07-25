@@ -4,10 +4,27 @@ import { Sidebar } from "../Videolisting/Sidebar/Sidebar";
 import SinglevideoCSS from "../../pages/Singlevideo/Singlevideo.module.css";
 import { Videocard } from "../Videolisting/Videocard/Videocard";
 import ReactPlayer from "react-player";
-
+import { useVideo } from "../../contexts/videoContext";
+import { useParams, Link } from "react-router-dom";
 import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
-import { IoIosShareAlt, IoIosSave } from "react-icons/io";
+import { AiFillLike } from "react-icons/ai";
+// import { IoIosShareAlt, IoIosSave } from "react-icons/io";
+
 function Singlevideo() {
+  const { videos } = useVideo();
+  console.log(videos);
+  const { videoId } = useParams();
+  console.log(videoId);
+  let suggestedVideos = videos.slice(12);
+  const detaileVideo = videos.find((video) => {
+    console.log(video.id, video.category);
+    return video.id === videoId;
+  });
+  const mapped = videos.map((video) => {
+    return video.id;
+  });
+  // console.log(detaileVideo);
+  console.log(mapped);
   return (
     <div>
       <Navbar />
@@ -17,8 +34,9 @@ function Singlevideo() {
           <div className={SinglevideoCSS["video-section"]}>
             <div className={SinglevideoCSS["player-wrapper"]}>
               <ReactPlayer
+                controls
                 className={SinglevideoCSS["react-player"]}
-                url="https://www.youtube.com/watch?v=r3wq6GqZQtI"
+                url={detaileVideo.source}
                 autoPlay={true}
                 width="100%"
                 height="100%"
@@ -31,36 +49,36 @@ function Singlevideo() {
               <a href="_blank">#Kollywood</a>
             </div>
             <h3 className={SinglevideoCSS["video-title"]}>
-              Netrikann Telugu Trailer | Nayanthara | Vignesh Shivan | Milind
-              Raju | Girishh Gopalakrishnan
+              {detaileVideo.title}
             </h3>
 
             <div className={SinglevideoCSS["play-video-info"]}>
               <p>1223 Views &bull; 2 Days ago</p>
               <div>
                 <a href="_blank">
-                  <AiOutlineLike />
-                  125
+                  <p>Like The Video</p> <AiFillLike />
+                  {/* <AiOutlineLike />
+                  125 */}
                 </a>
-                <a href="_blank">
+                {/* <a href="_blank">
                   <AiOutlineDislike />
                   125
-                </a>
-                <a href="_blank">
+                </a> */}
+                {/* <a href="_blank">
                   <IoIosShareAlt />
                   125
-                </a>
-                <a href="_blank">
+                </a> */}
+                {/* <a href="_blank">
                   <IoIosSave />
                   125
-                </a>
+                </a> */}
               </div>
             </div>
             <hr />
             <div className={SinglevideoCSS.publisher}>
-              <img src="https://i.pravatar.cc/300" alt="" />
+              <img src={detaileVideo.creatorLogo} alt="" />
               <div>
-                <h2>Shreyas Media</h2>
+                <h2>{detaileVideo.creator}</h2>
                 <span>400k Subscribers</span>
               </div>
               <button type="button">Subscribe</button>
@@ -116,11 +134,18 @@ function Singlevideo() {
           </div>
         </div>
         <div className={SinglevideoCSS["list-container"]}>
-          <Videocard className={SinglevideoCSS["horizontal-video-card"]} />
-          <Videocard className={SinglevideoCSS["horizontal-video-card"]} />
-          <Videocard className={SinglevideoCSS["horizontal-video-card"]} />
-          <Videocard className={SinglevideoCSS["horizontal-video-card"]} />
-          <Videocard className={SinglevideoCSS["horizontal-video-card"]} />
+          {suggestedVideos.map((video) => {
+            return (
+              <Link to={`/videos/${video._id}`} key={video._id}>
+                <Videocard
+                  title={video.title}
+                  creator={video.creator}
+                  thumbNail={video.thumbNail}
+                  logo={video.creatorLogo}
+                />
+              </Link>
+            );
+          })}
         </div>
       </div>
     </div>

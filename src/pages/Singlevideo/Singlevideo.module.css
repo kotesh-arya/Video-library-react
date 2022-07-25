@@ -58,6 +58,10 @@
 .play-video-info a {
   color: var(--white);
   text-decoration: none;
+  font-size: 1.2rem;
+  background-color: var(--primary-color);
+  color: var(--black);
+  padding: 2px 2px;
 }
 .play-video-info a img {
   width: 1.2rem;
@@ -209,7 +213,11 @@
 .list-container {
   width: 20%;
 }
-
+.list-container a {
+  text-decoration: none;
+  /* background-color: red; */
+  margin: 2rem;
+}
 .horizontal-video-card {
   height: 15rem;
 }

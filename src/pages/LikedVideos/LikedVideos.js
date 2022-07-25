@@ -1,32 +1,33 @@
-import React, {useState,useEffect} from "react";
+import React, { useEffect, useState } from "react";
 import { Navbar } from "../Videolisting/Navbar/Navbar";
 import { Sidebar } from "../Videolisting/Sidebar/Sidebar";
-import HistoryCSS from "../History/History.module.css";
-import { Videocard } from "../Videolisting/Videocard/Videocard";
+import likedVideosCSS from "../LikedVideos/LikedVideo.module.css";
 import { Link } from "react-router-dom";
+import { Videocard } from "../Videolisting/Videocard/Videocard";
 import axios from "axios";
-function History() {
-  const [videoHistory, setVideoHistory] = useState([]);
+function LikedVideos() {
+  const [likedVideos, setLikedVideos] = useState([]);
   const encodedToken = localStorage.getItem("JWT_TOKEN");
-  const getVideoHistory = async () => {
-    const response = await axios.get("/api/user/history", {
+  const getLikedVideos = async () => {
+    const response = await axios.get("/api/user/likes", {
       headers: {
         authorization: encodedToken,
       },
     });
     // console.log(response.data);
-    setVideoHistory(response.data.history);
+    setLikedVideos(response.data.likes);
   };
   useEffect(() => {
-    getVideoHistory();
+    getLikedVideos();
   }, []);
+
   return (
     <div>
       <Navbar />
       <Sidebar />
-      <div className={HistoryCSS.container}>
-        <div className={HistoryCSS["list-container"]}>
-          {videoHistory.map((video) => {
+      <div className={likedVideosCSS.container}>
+        <div className={likedVideosCSS["list-container"]}>
+          {likedVideos.map((video) => {
             return (
               <Link to={`/videos/${video._id}`} key={video._id}>
                 <Videocard
@@ -44,4 +45,4 @@ function History() {
   );
 }
 
-export { History };
+export { LikedVideos };
