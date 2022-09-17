@@ -10,15 +10,12 @@ function SignIn() {
     email: "",
     password: "",
   });
-  const mailData = useRef();
-  useEffect(() => {
-    mailData.current.focus();
-  }, []);
+  
   return (
     <div>
       <Navbar />
       {isLoggedIn ? (
-        <UserInfo/>
+        <UserInfo />
       ) : (
         <div className={SignInCSS.container}>
           <div className={SignInCSS["login-container"]}>
@@ -29,7 +26,6 @@ function SignIn() {
                 className={`input-box basic ${SignInCSS["text-field"]}`}
                 type="text"
                 placeholder="user@yahoo.com"
-                ref={mailData}
                 value={formData.email}
                 onChange={(e) =>
                   setFormData((prev) => ({ ...prev, email: e.target.value }))

@@ -1,12 +1,14 @@
 export const reducer = (state, action) => {
   if (action.type === "UPDATE_TOKEN_AND_USER_DATA") {
-    // console.log(action.payload.foundUser);
+    console.log(action.payload.encodedToken);
+    // console.log()
     return {
       ...state,
       isLoggedIn: true,
       email: "",
       password: "",
       userName: action.payload.foundUser.firstName,
+      token: action.payload.encodedToken,
     };
   }
   if (action.type === "UPDATE_USER_DATA") {

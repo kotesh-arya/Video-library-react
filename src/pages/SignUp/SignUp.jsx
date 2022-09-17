@@ -14,7 +14,7 @@ function SignUp() {
   const firstNameData = useRef();
   useEffect(() => {
     firstNameData.current.focus();
-  });
+  },[]);
   return (
     <div>
       <Navbar />

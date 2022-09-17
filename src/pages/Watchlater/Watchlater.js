@@ -3,40 +3,40 @@ import { Navbar } from "../Videolisting/Navbar/Navbar";
 import { Sidebar } from "../Videolisting/Sidebar/Sidebar";
 import WatchlaterCSS from "../Watchlater/Watchlater.module.css";
 import { Videocard } from "../Videolisting/Videocard/Videocard";
+// import { HorizontalCard } from "../HorizontalCard/Horizontalcard";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import { useAuth } from "../../contexts/authContext";
+import { useWatchlater } from "../../contexts/watchlaterContext";
 function Watchlater() {
-  const [watchLater, setWatchLater] = useState([]);
-  const encodedToken = localStorage.getItem("JWT_TOKEN");
-  const getWatchLaterVideos = async () => {
-    const response = await axios.get("/api/user/watchlater", {
-      headers: {
-        authorization: encodedToken,
-      },
-    });
-    setWatchLater(response.data.watchlater);
-  };
-  useEffect(() => {
-    getWatchLaterVideos();
-  }, []);
+  const { token, userName } = useAuth();
+  console.log(token, userName);
+  const { watchLater } = useWatchlater();
+  console.log(watchLater);
   return (
     <div>
       <Navbar />
       <Sidebar />
       <div className={WatchlaterCSS.container}>
         <div className={WatchlaterCSS["list-container"]}>
-          {watchLater.map((video) => {
-            return (
-              <Link to={`/videos/${video._id}`} key={video._id}>
+          {watchLater?.length === 0 ? (
+            <h2>The watchlater is empty please add to show up here</h2>
+          ) : (
+            watchLater?.map((video, index) => {
+              return (
+                // <Link to={`/videos/${video._id}`}>
                 <Videocard
+                  key={index}
                   title={video.title}
                   creator={video.creator}
                   thumbNail={video.thumbNail}
                   logo={video.creatorLogo}
+                  id={video._id}
+                  nonExploreCard={true}
                 />
-              </Link>
-            );
-          })}
+                //  </Link>
+              );
+            })
+          )}
         </div>
       </div>
     </div>

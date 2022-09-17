@@ -111,8 +111,8 @@
   .list-container {
     margin-left: 0;
     background-color: var(--page-bg-color);
-    /* background-color: red; */
-    justify-content: flex-start;
+    /* background-color: pink; */
+    justify-content: center ;
     padding: 0;
     width: 100%;
   }

@@ -2,7 +2,6 @@ import axios from "axios";
 import { useContext, createContext, useReducer } from "react";
 import { reducer } from "../reducers/authReducer";
 import { useNavigate, useLocation } from "react-router-dom";
-// import { GlobalCartContext } from "./cartContext";
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
@@ -10,6 +9,7 @@ const AuthProvider = ({ children }) => {
   let navigate = useNavigate();
   const intialState = {
     userName: "",
+    token: null,
     email: "",
     password: "",
     isLoggedIn: false,
@@ -18,7 +18,6 @@ const AuthProvider = ({ children }) => {
   };
   const [userState, userDispatch] = useReducer(reducer, intialState);
   // const { dispatch } = GlobalCartContext();// this dispatching is for the modal operating used in cart reducer of E-commerce :)
-
 
   // Login Function
 
@@ -34,7 +33,7 @@ const AuthProvider = ({ children }) => {
         const { data } = response;
         const { encodedToken, foundUser } = data;
 
-        console.log(encodedToken, foundUser);
+        // console.log(encodedToken, foundUser);
         if (response.status === 200) {
           userDispatch({
             type: "UPDATE_TOKEN_AND_USER_DATA",
@@ -46,7 +45,7 @@ const AuthProvider = ({ children }) => {
             navigate("/videolisting");
           }
 
-          localStorage.setItem("JWT_TOKEN", encodedToken);
+          // localStorage.setItem("JWT_TOKEN", encodedToken);
           // console.log(foundUser);
         }
       } catch (error) {
@@ -75,7 +74,7 @@ const AuthProvider = ({ children }) => {
           });
           console.log(createdUser);
           navigate("/");
-          localStorage.setItem("JWT_TOKEN", encodedToken);
+          // localStorage.setItem("JWT_TOKEN", encodedToken);
         }
       } catch (error) {
         console.log(error);

@@ -1,10 +1,95 @@
 .container {
-  padding-top: 1.5rem;
   background-color: var(--page-bg-color);
   color: var(--white);
-  padding-top: 5rem;
+  padding-top: 4rem;
   padding-left: 5px;
   margin-left: 9.5rem;
   width: 89%;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.list-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 100%;
+  padding-left: 2rem;
+}
+.list-container a {
+  text-decoration: none;
+  margin: 1rem 3rem;
+}
+.clear-history-btn {
+  background-color: var(--primary-color);
+  color: var(--black);
+  border-radius: 5px;
+  padding: 5px 15px;
+  width: 8rem;
+  margin-left: 0;
+  cursor: pointer;
+}
+/* Media-queries */
+
+@media screen and (max-width: 480px) {
+  .container {
+    padding-top: 3rem;
+    padding-left: 5px;
+    margin-left: 3.5rem;
+  }
+  .categories {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 1rem;
+  }
+  .categories li {
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 0.5rem;
+  }
+  .list-container {
+    margin: 0;
+    background-color: var(--page-bg-color);
+    justify-content: center;
+    padding: 1rem 0 0 0;
+  }
+  .list-container a {
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+@media (min-width: 481px) and (max-width: 882px) {
+  .container {
+    padding-top: 5rem;
+    padding-left: 5px;
+    margin-left: 6.5rem;
+  }
+
+  .list-container {
+    margin: 0;
+    background-color: var(--page-bg-color);
+    justify-content: center;
+    padding: 1rem 0 0 0;
+  }
+  .list-container a {
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@media (min-width: 882px) {
+  .list-container {
+    margin: 0;
+    background-color: var(--page-bg-color);
+    justify-content: flex-start;
+    padding: 1rem 0 0 0;
+    width: 100%;
+  }
+  .list-container a {
+    text-decoration: none;
+    margin: 0  2rem 2rem 5rem;
+    padding: 0;
+  }
 }

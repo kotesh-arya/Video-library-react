@@ -6,6 +6,7 @@ import { Watchlater } from "./pages/Watchlater/Watchlater";
 import { History } from "./pages/History/History";
 import { LikedVideos } from "./pages/LikedVideos/LikedVideos";
 import { Playlist } from "./pages/Playlist/Playlist";
+import { PlaylistVideos } from "./pages/PlaylistVideos/PlaylistVideos";
 import { Singlevideo } from "../src/pages/Singlevideo/Singlevideo";
 import { SignIn } from "./pages/SignIn/SignIn";
 import { SignUp } from "./pages/SignUp/SignUp";
@@ -43,14 +44,29 @@ function App() {
         <Route
           path="/likedvideos"
           element={
-            // <RequiresAuth>
+            <RequiresAuth>
               <LikedVideos />
-            // {/* </RequiresAuth> */}
+            </RequiresAuth>
           }
         />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/videos/:videoId" element={<Singlevideo />} />
+        <Route
+          path="/videos/:videoId"
+          element={
+            // <RequiresAuth>
+            <Singlevideo />
+            // {/* </RequiresAuth> */}
+          }
+        />
+        <Route
+          path="/playlists/:playlistId"
+          element={
+            <RequiresAuth>
+              <PlaylistVideos />
+            </RequiresAuth>
+          }
+        />
       </Routes>
     </div>
   );

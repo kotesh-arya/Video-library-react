@@ -6,11 +6,12 @@ import VideoListingCSS from "../Videolisting/VideoListing.module.css";
 import { Link } from "react-router-dom";
 import { useVideo } from "../../contexts/videoContext";
 import axios from "axios";
+import { useHistory } from "../../contexts/historyContext";
 function VideoListing() {
-  const { videos } = useVideo();
-
-  const [videoList, setVideoList] = useState([]);
-
+  const { addToHistory } = useHistory();
+  const { videoList } = useVideo();
+  const shuffledVideos = videoList?.sort(() => 0.5 - Math.random());
+  const [filteredVideos, setfilteredVideos] = useState(shuffledVideos);
   const [categories, setCategories] = useState([]);
   const getCategories = async () => {
     const response = await axios.get("/api/categories");
@@ -18,8 +19,7 @@ function VideoListing() {
   };
   const getVideos = async () => {
     const response = await axios.get("/api/videos");
-    const videos = await response.data.videos;
-    setVideoList(videos);
+    setfilteredVideos(response.data.videos.sort(() => 0.5 - Math.random()));
   };
   useEffect(() => {
     getCategories();
@@ -31,13 +31,13 @@ function VideoListing() {
 
   const filterVideos = (category) => {
     if (category === "All") {
-      setVideoList(videos);
+      setfilteredVideos(shuffledVideos);
       return;
     } else {
-      const filteredItems = videos.filter(
+      const filteredItems = shuffledVideos.filter(
         (video) => video.category === category
       );
-      setVideoList(filteredItems);
+      setfilteredVideos(filteredItems);
     }
   };
   return (
@@ -55,9 +55,15 @@ function VideoListing() {
           })}
         </ul>
         <div className={VideoListingCSS["list-container"]}>
-          {videoList.map((video) => {
+          {filteredVideos.map((video) => {
             return (
-              <Link to={`/videos/${video.id}`} key={video._id}>
+              <Link
+                to={`/videos/${video._id}`}
+                key={video._id}
+                onClick={() => {
+                  addToHistory(video);
+                }}
+              >
                 <Videocard
                   title={video.title}
                   creator={video.creator}

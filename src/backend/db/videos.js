@@ -1,4 +1,4 @@
-import { v4 as uuid } from "uuid";
+// import { v4 as uuid } from "uuid";
 
 /**
  * Videos Database can be added here.
@@ -7,8 +7,7 @@ import { v4 as uuid } from "uuid";
 
 export const videos = [
   {
-    _id: uuid(),
-    id: 1,
+    _id: "Go8nTmfrQd8",
     creator: "Marvel Studios",
     category: "Hollywood",
     title: "Marvel Studios Thor: Love and Thunder | Official Trailer",
@@ -20,8 +19,7 @@ export const videos = [
       "https://yt3.ggpht.com/fGvQjp1vAT1R4bAKTFLaSbdsfdYFDwAzVjeRVQeikH22bvHWsGULZdwIkpZXktcXZc5gFJuA3w=s176-c-k-c0x00ffffff-no-rj-mo",
   },
   {
-    _id: uuid(),
-    id: 2,
+    _id: "-Denciie5oA",
     category: "Hollywood",
     title: "WB 12 STRONG - Official Trailer | Chris Hemsworth ",
     creator: "Warner Bros",
@@ -33,8 +31,7 @@ export const videos = [
       "https://yt3.ggpht.com/Dd84-7pxMM5DvXGwsEoLv5NMdyeEJnGxhe0rtDuJslFN3YUKCOhN5R7n8--B6g33kPNV2Pv8Q28=s176-c-k-c0x00ffffff-no-rj-mo",
   },
   {
-    _id: uuid(),
-    id: 3,
+    _id: "5bL1ftuxgOE",
     creator: "Sony Pictures",
     category: "Hollywood",
     title: "The Invitation - Official Trailer | Johannes Beckman",
@@ -46,8 +43,7 @@ export const videos = [
       "https://yt3.ggpht.com/S4VWNJnJF_21DlC_tXhDYg6jyr4E9tJMlwn6kx49HPrh8uqNnQ3vZrIoDaaW2irhhsb-lTFQKA=s176-c-k-c0x00ffffff-no-rj",
   },
   {
-    _id: uuid(),
-    id: 4,
+    _id: "fb5ELWi-ekk",
     creator: "Universal Pictures",
     category: "Hollywood",
     title: "Jurassic World Dominion - Official Trailer",
@@ -59,8 +55,7 @@ export const videos = [
       "https://yt3.ggpht.com/_xmrueXlQyPmO379bSt2BjirLWXxNOUoQn1jV0DpOlxxeCGlx9Z2L9HxfoWMgdsdIyGFh17W1A=s176-c-k-c0x00ffffff-no-rj-mo",
   },
   {
-    _id: uuid(),
-    id: 5,
+    _id: "Pwe_va9hPH0",
     creator: "Disney+ Hotstar",
     category: "Bollywood",
     title: "GoodLuck Jerry - Official Trailer",
@@ -72,8 +67,7 @@ export const videos = [
       "https://yt3.ggpht.com/62exfAwB1QawnKHy5cWqWlG8PM6ma8vFkX58Qz2sQU3T5ckA4TMwaYKy1RZGd2jgM27UyitJVw=s176-c-k-c0x00ffffff-no-rj",
   },
   {
-    _id: uuid(),
-    id: 6,
+    _id: "JtdCIn47v5g",
     creator: "T-Series",
     category: "Bollywood",
     title: "HIT: The First Case - Official Trailer",
@@ -85,8 +79,7 @@ export const videos = [
       "https://yt3.ggpht.com/l8CPpluol0brprHG9dZMaD7AJ2XrngeNs_oy85XUqdkLi5E3PhCu7VmP_HsRM8yUk-suL-7ImQ=s176-c-k-c0x00ffffff-no-rj",
   },
   {
-    _id: uuid(),
-    id: 7,
+    _id: "fYRiuY5_KXQ",
     creator: "Z-Studios",
     category: "Bollywood",
     title: "OM | Trailer | Aditya Roy Kapur | Sanjana Sanghi ",
@@ -98,8 +91,7 @@ export const videos = [
       "https://yt3.ggpht.com/nOIelrYPKYybWsdVohjomeRCTI9dryPGd6FkRpBejAsTsG2p-eZYFrLmD3TlOvtpn5QJVmbo=s176-c-k-c0x00ffffff-no-rj",
   },
   {
-    _id: uuid(),
-    id: 8,
+    _id: "UHYUeZ8JszQ",
     creator: "Rotten Tomatoes",
     category: "Bollywood",
     title: "Brahmastra - Official Trailer | Ranbir kapoor | Alia Bhat",
@@ -111,8 +103,7 @@ export const videos = [
       "https://yt3.ggpht.com/_XxIsLgks3G7PJ1Yhfq6GWBeDr2PfYIi9xrbz-7AnsaiutSh6pItq4odcQgXRAvCn1KuGqlj4g=s176-c-k-c0x00ffffff-no-rj",
   },
   {
-    _id: uuid(),
-    id: 9,
+    _id: "Q1NKMPhP8PY",
     creator: "Mythri Movie Makers",
     category: "Tollywood",
     title: "Pushpa: The Rise - Official Trailer | Allu Arjun",
@@ -124,8 +115,7 @@ export const videos = [
       "https://yt3.ggpht.com/ytc/AMLnZu8mXp4mZFnp282atstxS_XS0nPa3JGUoHMtExEsIQ=s176-c-k-c0x00ffffff-no-rj",
   },
   {
-    _id: uuid(),
-    id: 10,
+    _id: "4x9abUBcK1c",
     creator: "UV Creators",
     category: "Tollywood",
     title: "Radhe Shyam - Official Trailer | Prabhas | Pooja Hegde",
@@ -137,8 +127,7 @@ export const videos = [
       "https://yt3.ggpht.com/ytc/AMLnZu9R3YJZzwbSK_pfn8pncvGYnGnSzgVMHOY97BwWBQ=s176-c-k-c0x00ffffff-no-rj",
   },
   {
-    _id: uuid(),
-    id: 11,
+    _id: "DsdT3D_zKF0",
     creator: "AK Entertainments",
     category: "Tollywood",
     title: "Agent - Teaser | No1 Akhil Akkineni",
@@ -150,8 +139,7 @@ export const videos = [
       "https://yt3.ggpht.com/ytc/AKedOLQy8NhqfV2fRmTec1GRy-fIwY0FF2hmpMI70Ke41A=s176-c-k-c0x00ffffff-no-rj",
   },
   {
-    _id: uuid(),
-    id: 12,
+    _id: "WuCjEeyQrq8",
     creator: "Konidela Entertainments",
     category: "Tollywood",
     title: "God Father - First Look | Megastar Chiranjeevi ",
@@ -163,8 +151,7 @@ export const videos = [
       "https://yt3.ggpht.com/ytc/AKedOLSK3NRU3UCQWU4i5FJOFY9kRKDfwJLRYAi64wio=s176-c-k-c0x00ffffff-no-rj-mo",
   },
   {
-    _id: uuid(),
-    id: 13,
+    _id: "dRjt2XJIJPc",
     creator: "Sregamapa Tamil",
     category: "Kollywood",
     title: "Dejavu - Official Trailer | Arulnithi | Madhoo | Achyuth ",
@@ -176,8 +163,7 @@ export const videos = [
       "https://yt3.ggpht.com/ytc/AKedOLRCjtYpPq0ugJUa-E9iowwRhaUdrFT6oPDpYv-X6g=s176-c-k-c0x00ffffff-no-rj",
   },
   {
-    _id: uuid(),
-    id: 14,
+    _id: "Fx_QpMZHUs0",
     creator: "Star Music India",
     category: "Kollywood",
     title: "MAHA - Official Trailer | Simbhu | Hansika",
@@ -189,8 +175,7 @@ export const videos = [
       "https://yt3.ggpht.com/ytc/AKedOLRqwxl3yLr-8WydgMknIjafEHKp9vQTPfYYEF7vRQ=s176-c-k-c0x00ffffff-no-rj",
   },
   {
-    _id: uuid(),
-    id: 15,
+    _id: "4_73N1iGkCU",
     creator: "Sony Music South",
     category: "Kollywood",
     title: "GARGI - Official Trailer | Sai Pallavi",
@@ -202,8 +187,7 @@ export const videos = [
       "https://yt3.ggpht.com/ytc/AKedOLRSu0SoelpGmqyAj7H-l9AvN_a4GiV145VwyF4yqA=s176-c-k-c0x00ffffff-no-rj",
   },
   {
-    _id: uuid(),
-    id: 16,
+    _id: "6b0b-FcQ6ls",
     creator: "Vyjayanthi Network",
     category: "Kollywood",
     title: "Sita Ramam - Official Teaser | Dulquer Salman",

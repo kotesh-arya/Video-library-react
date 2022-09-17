@@ -1,25 +1,36 @@
 .video-card {
   box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.2);
-  /* height: 19rem; */
   width: 20rem;
   margin: 2px;
   background-color: var(--page-bg-color);
   color: var(--white);
-  cursor: pointer;
+  /* cursor: pointer; */
   position: relative;
 }
 .video-card:hover {
   background-color: grey;
 }
+.video-card > a{
+  text-decoration: none;
+  font-weight: bold;
+  color: var(--white);
+}
 
 .delete-icon {
   position: absolute;
-  top: 0;
-  right: 3;
-  font-size: 2rem;
-  z-index: 5;
+  bottom: 3;
+  right: 0;
+  font-size: 1.8rem;
+  z-index: 0;
   color: var(--primary-color);
+  background-color: transparent;
+  border: none;
+  outline: none;
+  /* color: red; */
 }
+/* .delete-icon:hover{
+  background-color: green;
+} */
 
 .image-container {
   width: 100%;
