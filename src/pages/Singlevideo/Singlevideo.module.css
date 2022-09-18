@@ -51,6 +51,7 @@
   margin-top: 10px;
   font-size: 1rem;
   color: var(--white);
+  /* background-color: green; */
 }
 .play-video-info p {
   margin-left: 1rem;
@@ -58,6 +59,10 @@
 .play-video-info a {
   color: var(--white);
   text-decoration: none;
+  font-size: 1.2rem;
+  background-color: var(--primary-color);
+  color: var(--black);
+  padding: 2px 2px;
 }
 .play-video-info a img {
   width: 1.2rem;
@@ -69,7 +74,50 @@
   align-items: center;
   margin-left: 1rem;
 }
+/* .watch-later-icon{
 
+}
+.add-playlist-icon{
+
+} */
+.tags-title-stats {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  /* background-color: red; */
+  width: 65%;
+  height: 7rem;
+}
+.title-stats {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.icons {
+  display: flex;
+  flex-direction: column;
+  /* align-items: flex-end; */
+  /* background-color: rgb(64, 64, 12); */
+  width: 25%;
+  height: 7rem;
+  margin: 1rem ;
+  justify-content: space-between;
+}
+.icons p {
+  background-color: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  text-align: center;
+  padding: 4px 5px;
+  border-radius: 3px;
+  cursor: pointer;
+  width: 100%;
+}
+.icons p:hover{
+  background-color: var(--primary-color);
+  color: var(--black);
+}
 .video-section hr {
   border: 0;
   height: 1px;
@@ -209,10 +257,13 @@
 .list-container {
   width: 20%;
 }
-
-.horizontal-video-card {
-  height: 15rem;
+.list-container > a {
+  text-decoration: none;
+  margin: 1rem;
 }
+/* .horizontal-video-card {
+  height: 15rem;
+} */
 
 @media screen and (max-width: 480px) {
   .container {
@@ -295,18 +346,26 @@
     background-color: var(--page-bg-color);
     color: var(--white);
     padding-top: 1rem;
-    margin: 3rem 0 0 9.5rem;
-    width: 89%;
+    margin: 2rem 0 0 9.5rem;
+    width: 88%;
     min-height: 100vh;
+    /* background-color: green; */
   }
-  .video-section {
+  .video-detail-container {
+    /* background-color: #0000c8; */
+    width: 60%;
+  }
+  .video-detail-container > .video-section {
     margin-top: 0;
     width: 100%;
+    /* background-color: brown; */
+    padding: 1rem;
   }
   .list-container {
     margin-left: 1rem;
     margin-right: 0;
-    width: fit-content;
+    width: 38%;
+    /* background-color: red; */
     padding: 0;
   }
 }

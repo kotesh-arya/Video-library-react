@@ -1,33 +1,80 @@
 import React from "react";
 import VideocardCSS from "../Videocard/Videocard.module.css";
-import { GoVerified, GoHeart } from "react-icons/go";
-import {MdDelete} from "react-icons/md"
-function Videocard() {
+import { Link } from "react-router-dom";
+import { GoVerified } from "react-icons/go";
+// import { MdWatchLater, MdOutlinePlaylistPlay } from "react-icons/md";
+import { MdDelete } from "react-icons/md";
+import { useWatchlater } from "../../../contexts/watchlaterContext";
+import { useHistory } from "../../../contexts/historyContext";
+import { useLikes } from "../../../contexts/likeContext";
+
+function Videocard({ id, title, creator, thumbNail, logo, nonExploreCard }) {
+  const { removeFromWatchlater } = useWatchlater();
+  const { removeFromHistory } = useHistory();
+  const { removeFromLikedVideos } = useLikes();
   return (
     <div>
       <div className={`card shadow-card ${VideocardCSS["video-card"]}`}>
-        <GoHeart className={VideocardCSS["heart-icon"]} />  <MdDelete  className={VideocardCSS["delete-icon"]} />
+        {/* <MdDelete className={VideocardCSS["delete-icon"]} /> */}
         <div className={VideocardCSS["image-container"]}>
+          {/* <Link to={`/videos/${id}`}> */}
           <img
             className={VideocardCSS["card-image"]}
-            src="https://imgs.search.brave.com/gk8xmCaP71O-KfiQB1vwwOn3FpvAT1188zQZJ03xUvw/rs:fit:1021:225:1/g:ce/aHR0cHM6Ly90c2Ux/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5V/OFlFOU4wTU8yTk5n/NU1aWUZLM01RSGFE/YyZwaWQ9QXBp"
-            alt="shadow-card-img"
+            src={thumbNail}
+            alt="thumbnail"
           />
+          {/* </Link> */}
         </div>
-        <div className={VideocardCSS["card-content"]}>
-          <img
-            className={VideocardCSS["user-profile"]}
-            src="https://yt3.ggpht.com/a/AATXAJyhISGtctxDWPoVl3FHSSVWHGvlXmyIqvubPg=s900-c-k-c0xffffffff-no-rj-mo"
-            alt=""
-          />
-          <div className={VideocardCSS["card-details"]}>
-            <h2>Pushpa: The Rise</h2>
-            <p>
-              Shreyas Media <GoVerified />
-            </p>
-            <p> 2.2M Views &bull; 1 year Ago </p>
+        <Link to={`/videos/${id}`}>
+          <div className={VideocardCSS["card-content"]}>
+            <div className={VideocardCSS["card-details"]}>
+              <img className={VideocardCSS["user-profile"]} src={logo} alt="" />
+              {/* <h4>{title.length > 16 ? `${title.substr(0, 16)}...` : title}</h4>{" "} */}
+              <div className="text-content">
+                <p>{title}</p>
+                <p className={VideocardCSS["creator-title"]}>
+                  {creator} <GoVerified />
+                </p>
+                <p className={VideocardCSS["views-period"]}>
+                  {" "}
+                  2.2M Views &bull; 1 year Ago{" "}
+                </p>
+              </div>
+            </div>
+            {/* <div className={VideocardCSS.icons}>
+            <MdWatchLater
+              className={VideocardCSS["watch-later-icon"]}
+              onClick={() => {
+                addToWatchLater({
+                  title,
+                  creator,
+                  thumbNail,
+                  logo,
+                });
+              }}
+            />{" "}
+            <MdOutlinePlaylistPlay
+              className={VideocardCSS["add-playlist-icon"]}
+            />
+          </div> */}
           </div>
-        </div>
+        </Link>
+        {nonExploreCard ? (
+          <button
+            onClick={() => {
+              removeFromWatchlater(id);
+              removeFromHistory(id);
+              removeFromLikedVideos(id);
+            }}
+            className={VideocardCSS["delete-icon"]}
+          >
+            {" "}
+            <MdDelete />
+            {/* Remove */}
+          </button>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );

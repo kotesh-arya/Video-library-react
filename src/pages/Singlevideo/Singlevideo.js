@@ -1,66 +1,127 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Navbar } from "../Videolisting/Navbar/Navbar";
 import { Sidebar } from "../Videolisting/Sidebar/Sidebar";
+import { HorizontalCard } from "../HorizontalCard/Horizontalcard";
+import { AiOutlineLike, AiOutlineDislike, AiFillLike } from "react-icons/ai";
+import { MdWatchLater, MdOutlinePlaylistPlay } from "react-icons/md";
 import SinglevideoCSS from "../../pages/Singlevideo/Singlevideo.module.css";
-import { Videocard } from "../Videolisting/Videocard/Videocard";
+import { useParams, Link, useNavigate } from "react-router-dom";
+import { useVideo } from "../../contexts/videoContext";
+import { useAuth } from "../../contexts/authContext";
 import ReactPlayer from "react-player";
-
-import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
-import { IoIosShareAlt, IoIosSave } from "react-icons/io";
+import axios from "axios";
+import { useWatchlater } from "../../contexts/watchlaterContext";
+import { useLikes } from "../../contexts/likeContext";
+import { usePlaylist } from "../../contexts/playlistContext";
+import { PlaylistModal } from "../PlaylistModal/PlaylistModal";
 function Singlevideo() {
+  const { playlists, addToPlaylist, isPlaylistModalOpen } = usePlaylist();
+  const navigate = useNavigate();
+  const { addToWatchLater } = useWatchlater();
+  const { addToLikedVideos } = useLikes();
+  const { token } = useAuth();
+  const { videoList } = useVideo();
+  console.log(videoList);
+  const shuffledVideos = videoList?.sort(() => 0.5 - Math.random());
+  const { videoId } = useParams();
+  let suggestedVideos = shuffledVideos
+    .filter((video) => video._id !== videoId)
+    .slice(0, 9);
+  const [video, setVideo] = useState({});
+
+  const fetchVideo = async () => {
+    try {
+      const response = await axios.get(`/api/video/${videoId}`);
+      setVideo(response.data.video);
+    } catch (e) {
+      console.log("error while fetching the SingleVideo", e);
+    }
+  };
+  useEffect(() => {
+    fetchVideo();
+  }, [videoId]);
+
   return (
     <div>
       <Navbar />
       <Sidebar />
+      {isPlaylistModalOpen && (
+        <PlaylistModal playlists={playlists} video={video} />
+      )}
       <div className={SinglevideoCSS["container"]}>
         <div className={SinglevideoCSS["video-detail-container"]}>
           <div className={SinglevideoCSS["video-section"]}>
             <div className={SinglevideoCSS["player-wrapper"]}>
               <ReactPlayer
+                controls
                 className={SinglevideoCSS["react-player"]}
-                url="https://www.youtube.com/watch?v=r3wq6GqZQtI"
-                autoPlay={true}
+                url={`https://www.youtube.com/watch?v=${video._id}`}
+                // playing={true}
                 width="100%"
                 height="100%"
               />
             </div>
-            <div className={SinglevideoCSS.tags}>
-              <a href="_blank">#Hollywood</a>
-              <a href="_blank">#Bollywood</a>
-              <a href="_blank">#Tollywood</a>
-              <a href="_blank">#Kollywood</a>
-            </div>
-            <h3 className={SinglevideoCSS["video-title"]}>
-              Netrikann Telugu Trailer | Nayanthara | Vignesh Shivan | Milind
-              Raju | Girishh Gopalakrishnan
-            </h3>
 
             <div className={SinglevideoCSS["play-video-info"]}>
-              <p>1223 Views &bull; 2 Days ago</p>
-              <div>
-                <a href="_blank">
-                  <AiOutlineLike />
-                  125
-                </a>
-                <a href="_blank">
-                  <AiOutlineDislike />
-                  125
-                </a>
-                <a href="_blank">
-                  <IoIosShareAlt />
-                  125
-                </a>
-                <a href="_blank">
-                  <IoIosSave />
-                  125
-                </a>
+              <div className={SinglevideoCSS["tags-title-stats"]}>
+                <div className={SinglevideoCSS.tags}>
+                  <p>#Hollywood</p>
+                  <p>#Bollywood</p>
+                  <p>#Tollywood</p>
+                  <p>#Kollywood</p>
+                </div>
+                <div className={SinglevideoCSS["title-stats"]}>
+                  <h3 className={SinglevideoCSS["video-title"]}>
+                    {video.title}
+                  </h3>
+                  <p>1223 Views &bull; 2 Days ago</p>
+                </div>
+              </div>
+              <div className={SinglevideoCSS.icons}>
+                <p
+                  onClick={() => {
+                    if (token) {
+                      addToWatchLater(video);
+                    } else {
+                      navigate("/signin");
+                    }
+                  }}
+                >
+                  Add to Watchlater{" "}
+                  <MdWatchLater
+                    className={SinglevideoCSS["watch-later-icon"]}
+                  />
+                </p>
+                <p
+                  onClick={() => {
+                    if (token) {
+                      addToPlaylist();
+                    } else {
+                      navigate("/signin");
+                    }
+                  }}
+                >
+                  Add To Playlist{" "}
+                  <MdOutlinePlaylistPlay
+                    className={SinglevideoCSS["add-playlist-icon"]}
+                  />{" "}
+                </p>
+                {/* <a href="_blank"> */}
+                <p
+                  onClick={() => {
+                    addToLikedVideos(video);
+                  }}
+                >
+                  Like <AiFillLike />
+                </p>
+                {/* </a> */}
               </div>
             </div>
             <hr />
             <div className={SinglevideoCSS.publisher}>
-              <img src="https://i.pravatar.cc/300" alt="" />
+              <img src={video.creatorLogo} alt="" />
               <div>
-                <h2>Shreyas Media</h2>
+                <h2>{video.creator}</h2>
                 <span>400k Subscribers</span>
               </div>
               <button type="button">Subscribe</button>
@@ -116,11 +177,18 @@ function Singlevideo() {
           </div>
         </div>
         <div className={SinglevideoCSS["list-container"]}>
-          <Videocard className={SinglevideoCSS["horizontal-video-card"]} />
-          <Videocard className={SinglevideoCSS["horizontal-video-card"]} />
-          <Videocard className={SinglevideoCSS["horizontal-video-card"]} />
-          <Videocard className={SinglevideoCSS["horizontal-video-card"]} />
-          <Videocard className={SinglevideoCSS["horizontal-video-card"]} />
+          {suggestedVideos.map((video) => {
+            return (
+              <Link to={`/videos/${video._id}`} key={video._id}>
+                <HorizontalCard
+                  title={video.title}
+                  creator={video.creator}
+                  thumbNail={video.thumbNail}
+                  logo={video.creatorLogo}
+                />
+              </Link>
+            );
+          })}
         </div>
       </div>
     </div>

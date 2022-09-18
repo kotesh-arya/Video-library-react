@@ -7,6 +7,7 @@ import {
   MdHistory,
   MdOutlinePlaylistPlay,
 } from "react-icons/md";
+import {AiFillLike} from "react-icons/ai"
 function Sidebar() {
   return (
     <div>
@@ -18,13 +19,17 @@ function Sidebar() {
           </Link>
 
           <Link className={SidebarCSS["shortcut-link"]} to="/watchlater">
-            <MdWatchLater className={SidebarCSS["sidebar-icon"]}/>
+            <MdWatchLater className={SidebarCSS["sidebar-icon"]} />
             <p className={SidebarCSS["sidebar-text"]}>Watch Later</p>
           </Link>
 
           <Link className={SidebarCSS["shortcut-link"]} to="/history">
             <MdHistory className={SidebarCSS["sidebar-icon"]} />
             <p className={SidebarCSS["sidebar-text"]}>History</p>
+          </Link>
+          <Link className={SidebarCSS["shortcut-link"]} to="/likedvideos">
+            <AiFillLike className={SidebarCSS["sidebar-icon"]} />
+            <p className={SidebarCSS["sidebar-text"]}>Liked Videos</p>
           </Link>
 
           <Link className={SidebarCSS["shortcut-link"]} to="/playlist">

@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "dayjs": "^1.11.3",
+    "icon-with-tooltip": "^2.0.0",
     "jwt-decode": "^3.1.2",
     "jwt-encode": "^1.0.1",
     "miragejs": "^0.1.45",

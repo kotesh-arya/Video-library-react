@@ -1,0 +1,24 @@
+.playlist-card {
+  display: flex;
+  flex-direction: row;
+  background-color: transparent;
+  height: 15rem;
+  /* width: 30rem; */
+}
+.playlist-card-image {
+  object-fit: contain;
+}
+.playlist-title {
+  color: yellow;
+  box-shadow: 0px 0px 10px solid yellow;
+  background-color: rgba(47, 128, 0, 0.541);
+}
+.playlist-title > h3 {
+  color: yellow;
+  background-color: black;
+  padding: 5px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
