@@ -56,7 +56,7 @@ function Singlevideo() {
                 controls
                 className={SinglevideoCSS["react-player"]}
                 url={`https://www.youtube.com/watch?v=${video._id}`}
-                // playing={true}
+                playing={true}
                 width="100%"
                 height="100%"
               />
