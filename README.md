@@ -2,7 +2,7 @@
 <h1 align="center"> <br>
   <a href="https://stream-star.netlify.app/" target="_blank"><img src="https://img.icons8.com/ios-filled/200/FAB005/play-button-circled--v1.png" alt="Play button for Stream star" width="200"></a>
   <br>
-Daily Fashion
+Stream Star
   <br></h1>
 
 <h4 align="center">A Video Streaming Web Application</h4>
