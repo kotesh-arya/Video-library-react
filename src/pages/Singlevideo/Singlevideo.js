@@ -56,7 +56,7 @@ function Singlevideo() {
                 controls
                 className={SinglevideoCSS["react-player"]}
                 url={`https://www.youtube.com/watch?v=${video._id}`}
-                playing={true}
+                playing={false}
                 width="100%"
                 height="100%"
               />
@@ -109,7 +109,11 @@ function Singlevideo() {
                 {/* <a href="_blank"> */}
                 <p
                   onClick={() => {
-                    addToLikedVideos(video);
+                    if (token) {
+                      addToLikedVideos(video);
+                    } else {
+                      navigate("/signin");
+                    }
                   }}
                 >
                   Like <AiFillLike />

@@ -59,6 +59,8 @@ function PlaylistVideos() {
                   logo={video.creatorLogo}
                   id={video._id}
                   nonExploreCard={true}
+                  playlistId={playlistId}
+                  playlistCard = {true}
                 />
                 // </Link>
               );

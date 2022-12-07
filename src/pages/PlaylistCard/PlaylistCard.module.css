@@ -1,12 +1,12 @@
 .playlist-card {
   display: flex;
-  flex-direction: row;
   background-color: transparent;
   height: 15rem;
-  /* width: 30rem; */
+
 }
 .playlist-card-image {
-  object-fit: contain;
+  object-fit: cover;
+  width: 100%;
 }
 .playlist-title {
   color: yellow;
@@ -18,7 +18,27 @@
   background-color: black;
   padding: 5px;
   position: absolute;
+  z-index: 10;
   bottom: 0;
   width: 100%;
   text-align: center;
+
+}
+.playlist-delete-btn {
+  position: absolute;
+  bottom: 0;
+  margin: 15px auto 10px 2rem;
+  font-weight: bold;
+  z-index: 10;
+  background-color: var(--primary-color);
+  border: none;
+  outline: none;
+  color: var(--black);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 5px;
+}
+.empty-playlist-title{
+  color: var(--primary-color);
+  margin: 1rem auto;
 }

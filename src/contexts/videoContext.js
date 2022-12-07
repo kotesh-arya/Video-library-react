@@ -23,9 +23,7 @@ const VideoProvider = ({ children }) => {
   useEffect(() => {
     getVideos();
   }, []);
-  const someFunctionThatWillBeSentIntoAppFromTheCurrentContext = () => {
-    // return some operation that has to be done...
-  };
+ 
   return (
     <VideoContext.Provider value={{ ...videoState, videoDispatch }}>
       {children}

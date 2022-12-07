@@ -18,10 +18,35 @@ nav {
 }
 
 .nav-right {
-  margin-right: 2rem;
+  margin-right: 1rem;
+  width: 18%;
+  /* background-color: red; */
+  justify-content: flex-end;
+
+  display: flex;
+}
+.login-btn{
+  color: var(--black);
+  cursor: pointer;
+  background-color: var(--primary-color);
+  padding: 8px;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-left: 20px;
+  outline: none;
+  border: none;
+}
+.link-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  /* background-color: green; */
+  /* width: 8rem; */
 }
 .nav-right a {
   text-decoration: none;
+  color: var(--primary-color);
 }
 .nav-right .user-icon {
   width: 2rem;
@@ -37,7 +62,6 @@ nav {
 .logo {
   width: 10rem;
 }
-
 
 .nav-center .search-box {
   border: 1px solid var(--white);

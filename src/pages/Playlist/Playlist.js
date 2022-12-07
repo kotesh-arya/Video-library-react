@@ -10,6 +10,11 @@ import { Link } from "react-router-dom";
 function Playlist() {
   const { playlists } = usePlaylist();
   console.log(playlists[0]?.videos);
+  let emptyPlaylist;
+  playlists.map((playlist) =>
+    playlist.length === 0 ? (emptyPlaylist = true) : (emptyPlaylist = false)
+  );
+
   return (
     <div>
       <Navbar />
@@ -24,12 +29,16 @@ function Playlist() {
           ) : (
             playlists.map((playlist) => {
               return (
-                <Link key={playlist._id} to={`/playlists/${playlist._id}`}>
+                // <Link key={playlist._id} to={`/playlists/${playlist._id}`}>
                   <PlaylistCard
                     title={playlist.title}
-                    imageSource={playlist.videos[0].thumbNail}
+                    playlistId ={playlist._id}
+                    imageSource={
+                      playlist.videos[0] && playlist.videos[0].thumbNail
+                    }
+                    emptyPlaylist={emptyPlaylist}
                   />
-                </Link>
+                // </Link>
               );
             })
           )}

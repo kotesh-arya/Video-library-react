@@ -7,15 +7,29 @@ import { MdDelete } from "react-icons/md";
 import { useWatchlater } from "../../../contexts/watchlaterContext";
 import { useHistory } from "../../../contexts/historyContext";
 import { useLikes } from "../../../contexts/likeContext";
+import { usePlaylist } from "../../../contexts/playlistContext";
 
-function Videocard({ id, title, creator, thumbNail, logo, nonExploreCard }) {
+function Videocard({
+  id,
+  title,
+  creator,
+  thumbNail,
+  logo,
+  nonExploreCard,
+  playlistId,
+  historyCard,
+  watchlaterCard,
+  likedVideoCard,
+}) {
   const { removeFromWatchlater } = useWatchlater();
   const { removeFromHistory } = useHistory();
   const { removeFromLikedVideos } = useLikes();
+  const { removeFromPlaylistVideos } = usePlaylist();
   return (
     <div>
       <div className={`card shadow-card ${VideocardCSS["video-card"]}`}>
         {/* <MdDelete className={VideocardCSS["delete-icon"]} /> */}
+        {/* <h2>nono</h2> */}
         <div className={VideocardCSS["image-container"]}>
           {/* <Link to={`/videos/${id}`}> */}
           <img
@@ -61,10 +75,12 @@ function Videocard({ id, title, creator, thumbNail, logo, nonExploreCard }) {
         </Link>
         {nonExploreCard ? (
           <button
-            onClick={() => {
-              removeFromWatchlater(id);
-              removeFromHistory(id);
-              removeFromLikedVideos(id);
+            onClick={(e) => {
+              e.stopPropagation();
+              watchlaterCard && removeFromWatchlater(id);
+              historyCard && removeFromHistory(id);
+              likedVideoCard && removeFromLikedVideos(id);
+              playlistId && removeFromPlaylistVideos(id, playlistId);
             }}
             className={VideocardCSS["delete-icon"]}
           >

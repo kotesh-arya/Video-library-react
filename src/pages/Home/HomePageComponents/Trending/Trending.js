@@ -5,7 +5,7 @@ function Trending() {
   return (
     <div>
       <h2 className={TrendingCSS["mid-heading"]}>TRENDING</h2>
-      <div className={TrendingCSS["cards-row"]}>
+      {/* <div className={TrendingCSS["cards-row"]}>
         <div className={`${TrendingCSS["col-one"]} ${TrendingCSS["col"]}`}>
           <Link to="/videolisting">
             <img
@@ -34,7 +34,7 @@ function Trending() {
         <div className={`${TrendingCSS["col-four"]} ${TrendingCSS["col"]}`}>
           <img src="https://pbs.twimg.com/media/Dz7Sv2JVsAAU2De.jpg" alt="" />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

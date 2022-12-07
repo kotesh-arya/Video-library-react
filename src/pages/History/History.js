@@ -37,6 +37,7 @@ function History() {
                   logo={video.creatorLogo}
                   id={video._id}
                   nonExploreCard={true}
+                  historyCard={true}
                 />
                 // </Link>
               );

@@ -1,10 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { usePlaylist } from "../../contexts/playlistContext";
 import playlistModalCSS from "../PlaylistModal/playlistModal.module.css";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 // import { usePlaylistVideos } from "../../contexts/playlistVideosContext";
 function PlaylistModal({ playlists, video }) {
-  const { closeModal, createPlaylist, removePlaylist,addToPlaylistVideos, removeFromPlaylistVideos } = usePlaylist();
+  const {
+    closeModal,
+    createPlaylist,
+    removePlaylist,
+    addToPlaylistVideos,
+    removeFromPlaylistVideos,
+    playlistChecked,
+  } = usePlaylist();
   // const {  } = usePlaylistVideos();
   const [playlistTitle, setPlaylistTitle] = useState("");
   // const [playlist, setPlaylist] = useState([]);
@@ -19,6 +26,7 @@ function PlaylistModal({ playlists, video }) {
   //   );
   //   setPlaylist(filteredPlaylist);
   // };
+  // useEffect(()=>{},[])
   return (
     <div
       // onClick={() => {
@@ -35,6 +43,7 @@ function PlaylistModal({ playlists, video }) {
         />
         <h1>PLAYLIST</h1>
         <input
+          className={playlistModalCSS["playlist-input"]}
           placeholder="Type playlist name..."
           type="text"
           value={playlistTitle}
@@ -43,6 +52,7 @@ function PlaylistModal({ playlists, video }) {
           }}
         />
         <button
+          className={playlistModalCSS["create-btn"]}
           onClick={() => {
             createPlaylist(playlistTitle);
             setPlaylistTitle("");
@@ -53,27 +63,34 @@ function PlaylistModal({ playlists, video }) {
         {playlists.map((playlist) => {
           console.log(playlist._id);
           return (
-            <p key={playlist._id}>
+            <div
+              key={playlist._id}
+              className={playlistModalCSS["playlist-title-container"]}
+            >
               <input
+                id={playlistModalCSS["playlist-checkbox"]}
+                // id="mowa"
                 type="checkbox"
                 onChange={(e) => {
+                  console.log(`clicked on ${playlist.title}`);
                   e.target.checked
                     ? addToPlaylistVideos(video, playlist._id)
-                    : removeFromPlaylistVideos(video.id, playlist._id);
+                    : removeFromPlaylistVideos(video._id, playlist._id);
                 }}
                 checked={playlist.videos.find((v) =>
-                  v.id === video.id ? true : false
+                  v._id === video._id ? true : false
                 )}
+                // defaultChecked={false}
+                // checked={playlistChecked}
               />
-              {playlist.title}
-              <button
-                onClick={() => {
-                  removePlaylist(playlist.id);
-                }}
+              <label
+                htmlFor={playlistModalCSS["playlist-checkbox"]}
+                //  htmlFor="mowa"
               >
-                DELETE
-              </button>
-            </p>
+                {" "}
+                <h3>{playlist.title}</h3>
+              </label>
+            </div>
           );
         })}
       </div>

@@ -1,20 +1,48 @@
 import React from "react";
+import { usePlaylist } from "../../contexts/playlistContext";
 import PlaylistCardCSS from "../PlaylistCard/PlaylistCard.module.css";
-function PlaylistCard({ title, imageSource }) {
+import { TbHourglassEmpty } from "react-icons/tb";
+import { Link } from "react-router-dom";
+function PlaylistCard({ title, imageSource, emptyPlaylist, playlistId }) {
+  const { removePlaylist } = usePlaylist();
   return (
     <div
       className={`card text-overlay-card ${PlaylistCardCSS["playlist-card"]}`}
     >
-      <div
-        className={`absolute-positioned-text ${PlaylistCardCSS["playlist-title"]} `}
-      >
-        <h3>{title}</h3>
+      <div>
+        <Link to={`/playlists/${playlistId}`}>
+          {" "}
+          <h3
+            className={`absolute-positioned-text ${PlaylistCardCSS["playlist-title"]} `}
+          >
+            {title}
+          </h3>
+        </Link>
+
+        <button
+          className={`${PlaylistCardCSS["playlist-delete-btn"]}`}
+          onClick={(e) => {
+            e.stopPropagation();
+            removePlaylist(playlistId);
+          }}
+        >
+          DELETE
+        </button>
       </div>
-      <img
-        className={`card-image ${PlaylistCardCSS["playlist-card-image"]} `}
-        src={imageSource}
-        alt="playlist-category"
-      />
+      {imageSource ? (
+        // <Link to={`/playlists/${playlistId}`}>
+
+        <img
+          className={`card-image ${PlaylistCardCSS["playlist-card-image"]} `}
+          src={imageSource}
+          alt="playlist-category"
+        />
+      ) : (
+        // </Link>
+        <h2 className={` ${PlaylistCardCSS["empty-playlist-title"]} `}>
+          Empty Playlist <TbHourglassEmpty />
+        </h2>
+      )}
     </div>
   );
 }

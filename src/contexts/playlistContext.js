@@ -9,7 +9,8 @@ const PlaylistProvider = ({ children }) => {
   const { token } = useAuth();
   const initialState = {
     playlists: [],
-    isPlaylistModalOpen: false,
+    isPlaylistModalOpen: true,
+    playlistChecked: false,
   };
   const [state, playlistDispatch] = useReducer(playlistReducer, initialState);
 
@@ -67,7 +68,6 @@ const PlaylistProvider = ({ children }) => {
   };
 
   const addToPlaylistVideos = async (video, playlistId) => {
-    
     try {
       const response = await axios.post(
         `/api/user/playlists/${playlistId}`,

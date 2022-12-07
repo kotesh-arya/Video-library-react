@@ -35,14 +35,16 @@ function LikedVideos() {
             likedVideos?.map((video) => {
               return (
                 // <Link to={`/videos/${video._id}`} key={video._id}>
-                  <Videocard key={video._id}
-                    title={video.title}
-                    creator={video.creator}
-                    thumbNail={video.thumbNail}
-                    logo={video.creatorLogo}
-                    id={video._id}
-                    nonExploreCard={true}
-                  />
+                <Videocard
+                  key={video._id}
+                  title={video.title}
+                  creator={video.creator}
+                  thumbNail={video.thumbNail}
+                  logo={video.creatorLogo}
+                  id={video._id}
+                  nonExploreCard={true}
+                  likedVideoCard={true}
+                />
                 // </Link>
               );
             })

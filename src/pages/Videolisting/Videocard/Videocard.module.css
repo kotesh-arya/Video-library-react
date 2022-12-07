@@ -22,11 +22,12 @@
   right: 0;
   font-size: 1.8rem;
   z-index: 0;
-  color: var(--primary-color);
+  /* color: var(--primary-color); */
   background-color: transparent;
   border: none;
   outline: none;
-  /* color: red; */
+  color: red;
+  cursor: pointer;
 }
 /* .delete-icon:hover{
   background-color: green;

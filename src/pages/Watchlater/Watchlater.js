@@ -32,6 +32,7 @@ function Watchlater() {
                   logo={video.creatorLogo}
                   id={video._id}
                   nonExploreCard={true}
+                  watchlaterCard={true}
                 />
                 //  </Link>
               );

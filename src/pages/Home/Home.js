@@ -7,8 +7,8 @@ function Home() {
   return (
     <div>
       <Banner />
-      <Trending />
-      <Footer />
+      {/* <Trending /> */}
+      {/* <Footer /> */}
     </div>
   );
 }

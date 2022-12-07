@@ -19,10 +19,40 @@
 
   transform: translate(-50%, -50%);
 }
-.close-icon{
+.close-icon {
+  height: 2rem;
+  width: 2rem;
+  cursor: pointer;
   position: absolute;
   top: 0;
   right: 0;
   margin-right: 5px;
   margin-top: 5px;
+}
+.create-btn {
+  color: var(--black);
+  cursor: pointer;
+  background-color: var(--primary-color);
+  padding: 8px;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-left: 20px;
+  outline: none;
+  border: none;
+}
+.playlist-input {
+  height: 2rem;
+}
+.playlist-title-container {
+  /* background-color: rgb(12, 16, 7); */
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#playlist-checkbox {
+  height: 1rem;
+  width: 1rem;
+  margin-right: 5px;
+  cursor: pointer;
 }
