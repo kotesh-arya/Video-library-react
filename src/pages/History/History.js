@@ -8,7 +8,7 @@ import axios from "axios";
 import { useHistory } from "../../contexts/historyContext";
 function History() {
   const { history, clearHistory } = useHistory();
-  console.log(history);
+  history.reverse();
   return (
     <div>
       <Navbar />
@@ -28,7 +28,6 @@ function History() {
           ) : (
             history?.map((video) => {
               return (
-                // <Link to={`/videos/${video._id}`} key={video._id}>
                 <Videocard
                   key={video._id}
                   title={video.title}
@@ -39,7 +38,6 @@ function History() {
                   nonExploreCard={true}
                   historyCard={true}
                 />
-                // </Link>
               );
             })
           )}

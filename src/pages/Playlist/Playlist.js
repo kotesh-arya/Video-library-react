@@ -5,16 +5,14 @@ import PlaylistCSS from "../Playlist/Playlist.module.css";
 import { usePlaylist } from "../../contexts/playlistContext";
 import { PlaylistCard } from "../PlaylistCard/PlaylistCard";
 import { Link } from "react-router-dom";
-// import { usePlaylistVideos } from "../../contexts/playlistVideosContext";
 
 function Playlist() {
   const { playlists } = usePlaylist();
-  console.log(playlists[0]?.videos);
   let emptyPlaylist;
   playlists.map((playlist) =>
     playlist.length === 0 ? (emptyPlaylist = true) : (emptyPlaylist = false)
   );
-
+ 
   return (
     <div>
       <Navbar />
@@ -30,14 +28,14 @@ function Playlist() {
             playlists.map((playlist) => {
               return (
                 // <Link key={playlist._id} to={`/playlists/${playlist._id}`}>
-                  <PlaylistCard
-                    title={playlist.title}
-                    playlistId ={playlist._id}
-                    imageSource={
-                      playlist.videos[0] && playlist.videos[0].thumbNail
-                    }
-                    emptyPlaylist={emptyPlaylist}
-                  />
+                <PlaylistCard
+                  title={playlist.title}
+                  playlistId={playlist._id}
+                  imageSource={
+                    playlist.videos[0] && playlist.videos[0].thumbNail
+                  }
+                  emptyPlaylist={emptyPlaylist}
+                />
                 // </Link>
               );
             })

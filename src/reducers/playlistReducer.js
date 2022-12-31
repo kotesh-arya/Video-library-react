@@ -16,11 +16,6 @@ export const playlistReducer = (state, action) => {
         isPlaylistModalOpen: false,
       };
     case "PLAYLIST_VIDEOS":
-      console.log(
-        state.playlists.map(
-          (playlist) => playlist._id === action.payload._id
-        )
-      );
       return {
         ...state,
         playlistChecked: !state.playlistChecked,
@@ -28,9 +23,7 @@ export const playlistReducer = (state, action) => {
           playlist._id === action.payload._id ? action.payload : playlist
         ),
       };
-    // return state.playlists.map((playlist) =>
-    //   playlist._id === action.payload._id ? action.payload : playlist
-    // );
+
     default:
       return state;
   }

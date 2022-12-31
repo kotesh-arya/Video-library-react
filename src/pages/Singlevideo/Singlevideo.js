@@ -21,7 +21,6 @@ function Singlevideo() {
   const { addToLikedVideos } = useLikes();
   const { token } = useAuth();
   const { videoList } = useVideo();
-  console.log(videoList);
   const shuffledVideos = videoList?.sort(() => 0.5 - Math.random());
   const { videoId } = useParams();
   let suggestedVideos = shuffledVideos

@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useReducer,useEffect } from "react";
 import { playlistReducer } from "../reducers/playlistReducer";
 import axios from "axios";
 import { useAuth } from "./authContext";
@@ -9,7 +8,7 @@ const PlaylistProvider = ({ children }) => {
   const { token } = useAuth();
   const initialState = {
     playlists: [],
-    isPlaylistModalOpen: true,
+    isPlaylistModalOpen: false,
     playlistChecked: false,
   };
   const [state, playlistDispatch] = useReducer(playlistReducer, initialState);
@@ -82,13 +81,11 @@ const PlaylistProvider = ({ children }) => {
         type: "PLAYLIST_VIDEOS",
         payload: response.data.playlist,
       });
-      console.log(response, "response from sample add to playlist request");
     } catch (e) {
       console.log("error during add a video to selected playlist:", e);
     }
   };
   const removeFromPlaylistVideos = async (videoId, playlistId) => {
-    console.log("delete working");
     try {
       const response = await axios.delete(
         `/api/user/playlists/${playlistId}/${videoId}`,
@@ -100,7 +97,6 @@ const PlaylistProvider = ({ children }) => {
         type: "PLAYLIST_VIDEOS",
         payload: response.data.playlist,
       });
-      console.log(response, "response from delete request");
     } catch (e) {
       console.log("error during remove from likes:", e);
     }

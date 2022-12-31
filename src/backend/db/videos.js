@@ -1,4 +1,3 @@
-// import { v4 as uuid } from "uuid";
 
 /**
  * Videos Database can be added here.
@@ -91,14 +90,14 @@ export const videos = [
       "https://yt3.ggpht.com/nOIelrYPKYybWsdVohjomeRCTI9dryPGd6FkRpBejAsTsG2p-eZYFrLmD3TlOvtpn5QJVmbo=s176-c-k-c0x00ffffff-no-rj",
   },
   {
-    _id: "UHYUeZ8JszQ",
+    _id: "BUjXzrgntcY",
     creator: "Rotten Tomatoes",
     category: "Bollywood",
-    title: "Brahmastra - Official Trailer | Ranbir kapoor | Alia Bhat",
+    title: "Brahmastra - Trailer | Ranbir kapoor | Alia Bhat",
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
     thumbNail: "https://img.youtube.com/vi/5HF_A3lmAyk/maxresdefault.jpg",
-    source: "https://www.youtube.com/watch?v=UHYUeZ8JszQ",
+    source: "https://www.youtube.com/watch?v=BUjXzrgntcY",
     creatorLogo:
       "https://yt3.ggpht.com/_XxIsLgks3G7PJ1Yhfq6GWBeDr2PfYIi9xrbz-7AnsaiutSh6pItq4odcQgXRAvCn1KuGqlj4g=s176-c-k-c0x00ffffff-no-rj",
   },

@@ -6,11 +6,10 @@ const HistoryContext = createContext();
 
 const HistoryProvider = ({ children }) => {
   const { token } = useAuth();
-  // console.log(token);
   const initialState = {
     history: [],
   };
-  
+
   const [state, historyDispatch] = useReducer(historyReducer, initialState);
   const getHistory = async () => {
     if (token) {
@@ -18,7 +17,6 @@ const HistoryProvider = ({ children }) => {
         const response = await axios.get("/api/user/history", {
           headers: { authorization: token },
         });
-        // console.log(response.data.history);
         historyDispatch({
           type: "HISTORY",
           payload: response.data.history,
@@ -35,8 +33,6 @@ const HistoryProvider = ({ children }) => {
     getHistory();
   }, [token]);
   const addToHistory = async (video) => {
-    console.log(token);
-   console.log("hi from add to history")
     try {
       const response = await axios.post(
         "/api/user/history",
@@ -49,13 +45,11 @@ const HistoryProvider = ({ children }) => {
         type: "HISTORY",
         payload: response.data.history,
       });
-      console.log(response, "response from post request");
     } catch (e) {
       console.log("error during add to history:", e);
     }
   };
   const removeFromHistory = async (videoId) => {
-    console.log("delete working");
     try {
       const response = await axios.delete(`/api/user/history/${videoId}`, {
         headers: { authorization: token },

@@ -1,7 +1,5 @@
 export const reducer = (state, action) => {
   if (action.type === "UPDATE_TOKEN_AND_USER_DATA") {
-    console.log(action.payload.encodedToken);
-    // console.log()
     return {
       ...state,
       isLoggedIn: true,
@@ -12,7 +10,6 @@ export const reducer = (state, action) => {
     };
   }
   if (action.type === "UPDATE_USER_DATA") {
-    // console.log(action.payload);
     return {
       ...state,
       email: action.payload.email,

@@ -6,23 +6,8 @@ import { Link } from "react-router-dom";
 import { Videocard } from "../Videolisting/Videocard/Videocard";
 import { useLikes } from "../../contexts/likeContext";
 function LikedVideos() {
-  // const [likedVideos, setLikedVideos] = useState([]);
-  // const encodedToken = localStorage.getItem("JWT_TOKEN");
-  // const getLikedVideos = async () => {
-  //   const response = await axios.get("/api/user/likes", {
-  //     headers: {
-  //       authorization: encodedToken,
-  //     },
-  //   });
-  //   // console.log(response.data);
-  //   setLikedVideos(response.data.likes);
-  // };
-  // useEffect(() => {
-  //   getLikedVideos();
-  // }, []);
   const { likedVideos } = useLikes();
-  console.log(likedVideos);
-
+  likedVideos.reverse();
   return (
     <div>
       <Navbar />
@@ -34,7 +19,6 @@ function LikedVideos() {
           ) : (
             likedVideos?.map((video) => {
               return (
-                // <Link to={`/videos/${video._id}`} key={video._id}>
                 <Videocard
                   key={video._id}
                   title={video.title}
@@ -45,7 +29,6 @@ function LikedVideos() {
                   nonExploreCard={true}
                   likedVideoCard={true}
                 />
-                // </Link>
               );
             })
           )}

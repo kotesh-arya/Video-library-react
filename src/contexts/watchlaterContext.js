@@ -6,7 +6,6 @@ const WatchlaterContext = createContext();
 
 const WatchlaterProvider = ({ children }) => {
   const { token } = useAuth();
-  // console.log(token);
   const initialState = {
     watchLater: [],
   };
@@ -36,8 +35,6 @@ const WatchlaterProvider = ({ children }) => {
     getWatchlater();
   }, [token]);
   const addToWatchLater = async (video) => {
-    console.log(token);
-
     try {
       const response = await axios.post(
         "/api/user/watchlater",
@@ -50,13 +47,11 @@ const WatchlaterProvider = ({ children }) => {
         type: "WATCH_LATER",
         payload: response.data.watchlater,
       });
-      console.log(response, "response from post request");
     } catch (e) {
       console.log("error during add to watchlater:", e);
     }
   };
   const removeFromWatchlater = async (videoId) => {
-    console.log("delete working")
     try {
       const response = await axios.delete(`/api/user/watchlater/${videoId}`, {
         headers: { authorization: token },
@@ -65,13 +60,14 @@ const WatchlaterProvider = ({ children }) => {
         type: "WATCH_LATER",
         payload: response.data.watchlater,
       });
-      console.log(response, "response from delete request");
     } catch (e) {
       console.log("error during remove from watchlater:", e);
     }
   };
   return (
-    <WatchlaterContext.Provider value={{ ...state, addToWatchLater,removeFromWatchlater }}>
+    <WatchlaterContext.Provider
+      value={{ ...state, addToWatchLater, removeFromWatchlater }}
+    >
       {children}
     </WatchlaterContext.Provider>
   );

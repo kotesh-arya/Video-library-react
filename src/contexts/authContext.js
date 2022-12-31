@@ -17,12 +17,10 @@ const AuthProvider = ({ children }) => {
     userExists: false,
   };
   const [userState, userDispatch] = useReducer(reducer, intialState);
-  // const { dispatch } = GlobalCartContext();// this dispatching is for the modal operating used in cart reducer of E-commerce :)
 
   // Login Function
 
   const loginUser = async (email, password) => {
-    // console.log(email, password);
     if (email !== "" && password !== "") {
       try {
         let response = await axios.post("/api/auth/login", {
@@ -33,7 +31,6 @@ const AuthProvider = ({ children }) => {
         const { data } = response;
         const { encodedToken, foundUser } = data;
 
-        // console.log(encodedToken, foundUser);
         if (response.status === 200) {
           userDispatch({
             type: "UPDATE_TOKEN_AND_USER_DATA",
@@ -44,12 +41,8 @@ const AuthProvider = ({ children }) => {
           } else {
             navigate("/videolisting");
           }
-
-          // localStorage.setItem("JWT_TOKEN", encodedToken);
-          // console.log(foundUser);
         }
       } catch (error) {
-        // dispatch({ type: "INVALID_USER_INPUT" });// for modal in cart reducer of E-commerce
         console.log(error);
       }
     }
@@ -72,20 +65,18 @@ const AuthProvider = ({ children }) => {
             type: "UPDATE_TOKEN_AND_USER_DATA",
             payload: { encodedToken, foundUser: createdUser },
           });
-          console.log(createdUser);
           navigate("/");
-          // localStorage.setItem("JWT_TOKEN", encodedToken);
         }
       } catch (error) {
         console.log(error);
         if (error.response.status === 422) {
-          // userDispatch({ type: "USER_ALREADY_EXISTS" });
+          userDispatch({ type: "USER_ALREADY_EXISTS" });
         }
       }
     }
   };
   const logoutUser = () => {
-    navigate("/");
+    navigate("/videolisting");
     userDispatch({ type: "USER_LOGOUT" });
   };
   return (
