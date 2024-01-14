@@ -12,7 +12,7 @@ Stream Star
 
 -  Stream Star is a platform where you can binge-watch your favourite videos online.
 - In this App, users can view videos based on different categories such as Hollywood, Bollywood, Tollywood and Kollywood.
-- Additionally I have implemented various features such as create a Playlist for your customised category, History for vidoes you have watched earlier.
+- Additionally I have implemented various features such as create a Playlist for your customised category, History for videos you have watched earlier.
 
 ## Live Deployment
 
